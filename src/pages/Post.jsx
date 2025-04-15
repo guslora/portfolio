@@ -5,25 +5,23 @@ import ReactMarkdown from "react-markdown";
 
 export default function Post() {
   const { slug } = useParams();
-  const [post, setPost] = useState({ title: "", content: "", date: "" });
+  const [post, setPost] = useState({ title: "", date: "", content: "" });
 
   useEffect(() => {
-    const fetchPost = async () => {
+    const load = async () => {
       const res = await fetch(`/posts/${slug}.md`);
-      const text = await res.text();
-      const { data, content } = matter(text);
-      setPost({ title: data.title, date: data.date, content });
+      const raw = await res.text();
+      const { data, content } = matter(raw);
+      setPost({ ...data, content });
     };
-    fetchPost();
+    load();
   }, [slug]);
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-      <p className="text-sm text-gray-500 mb-6">{post.date}</p>
-      <article className="prose max-w-none">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
-      </article>
+    <main className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-2xl font-bold">{post.title}</h1>
+      <p className="text-sm text-gray-500 mb-4">{post.date}</p>
+      <ReactMarkdown>{post.content}</ReactMarkdown>
     </main>
   );
 }

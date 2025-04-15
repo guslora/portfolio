@@ -1,7 +1,6 @@
 ---
 title: "Cloud Journey"
-date: "2025-04-01"
-tags: ["Cloud", "Tech"]
+date: "2025-04-14"
 ---
 
-Reflections on transitioning from traditional IT to Azure.
+Exploring how cloud-native principles and modern platforms shape my architecture practice.

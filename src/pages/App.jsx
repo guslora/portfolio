@@ -1,44 +1,24 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
-import Projects from "./Projects";
-import Blog from "./Blog";
-import Resume from "./Resume";
 import Post from "./Post";
+import ProjectDetail from "./ProjectDetail";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900">
-        <header className="bg-brand-blue text-white py-4 px-6 shadow">
-          <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 className="text-xl font-bold">GUS LORA</h1>
-            <nav className="space-x-4 text-sm">
-              <Link to="/" className="hover:underline">Home</Link>
-              <Link to="/about" className="hover:underline">About</Link>
-              <Link to="/projects" className="hover:underline">Projects</Link>
-              <Link to="/resume" className="hover:underline">Resume</Link>
-              <Link to="/blog" className="hover:underline">Blog</Link>
-            </nav>
-          </div>
-        </header>
-
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<Post />} />
-          </Routes>
-        </main>
-
-        <footer className="bg-brand-blue text-white py-4 text-center text-sm">
-          &copy; {new Date().getFullYear()} Gus Lora. All rights reserved.
-        </footer>
-      </div>
+      <header className="p-4 bg-gray-800 text-white flex justify-between">
+        <h1 className="text-lg font-semibold">Gus Lora Portfolio</h1>
+        <nav className="space-x-4 text-sm">
+          <Link to="/">Home</Link>
+          <Link to="/blog/cloud-journey">Sample Blog</Link>
+          <Link to="/projects/architecture-blueprint">Sample Project</Link>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/blog/:slug" element={<Post />} />
+        <Route path="/projects/:slug" element={<ProjectDetail />} />
+        <Route path="/" element={<main className='p-6 text-center'>Welcome to Gus Lora's portfolio site!</main>} />
+      </Routes>
     </BrowserRouter>
   );
 }

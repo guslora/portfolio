@@ -5,25 +5,23 @@ import ReactMarkdown from "react-markdown";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
-  const [project, setProject] = useState({ title: "", content: "", date: "" });
+  const [project, setProject] = useState({ title: "", date: "", content: "" });
 
   useEffect(() => {
-    const fetchProject = async () => {
+    const load = async () => {
       const res = await fetch(`/projects/${slug}.md`);
-      const text = await res.text();
-      const { data, content } = matter(text);
-      setProject({ title: data.title, date: data.date, content });
+      const raw = await res.text();
+      const { data, content } = matter(raw);
+      setProject({ ...data, content });
     };
-    fetchProject();
+    load();
   }, [slug]);
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
-      <p className="text-sm text-gray-500 mb-6">{project.date}</p>
-      <article className="prose max-w-none">
-        <ReactMarkdown>{project.content}</ReactMarkdown>
-      </article>
+    <main className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-2xl font-bold">{project.title}</h1>
+      <p className="text-sm text-gray-500 mb-4">{project.date}</p>
+      <ReactMarkdown>{project.content}</ReactMarkdown>
     </main>
   );
 }
