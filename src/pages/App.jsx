@@ -5,11 +5,12 @@ import About from "./About";
 import Projects from "./Projects";
 import Blog from "./Blog";
 import Resume from "./Resume";
+import Post from "./Post";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-brand-gray text-brand-blue font-sans">
+      <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900">
         <header className="bg-brand-blue text-white py-4 px-6 shadow">
           <div className="max-w-6xl mx-auto flex justify-between items-center">
             <h1 className="text-xl font-bold">GUS LORA</h1>
@@ -30,6 +31,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<Post />} />
           </Routes>
         </main>
 
@@ -40,5 +42,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
