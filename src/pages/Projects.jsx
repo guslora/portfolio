@@ -1,37 +1,76 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import React, { useState } from "react";
 
-const featuredProjects = [
+const projectData = [
   {
-    title: "Modern Intune Rollout Blueprint",
+    title: "Cloud Strategy Framework",
     category: "Cloud",
-    description: "Designed a secure lifecycle with Atos DaaS, Autopilot, and Jamf integration across platforms."
+    image: "/thumbnails/cloud-strategy.jpg",
+    description: "Enterprise-wide Azure landing zone and cost optimization strategy."
   },
   {
-    title: "3D Crash Mapping Suite",
-    category: "Hardware",
-    description: "Led CAD-based crash scene software development using GPS + LIDAR for law enforcement."
-  },
-  {
-    title: "Predictive Maintenance for AgTech",
+    title: "Workplace Automation Blueprint",
     category: "Product",
-    description: "AI-based monitoring system deployed at Bayer Crop Science, saving $3M in downtime."
+    image: "/thumbnails/workplace-automation.jpg",
+    description: "Streamlined onboarding/offboarding using Jamf + Intune automation."
+  },
+  {
+    title: "Speed Laser & 3D Mapping System",
+    category: "Hardware",
+    image: "/thumbnails/speed-laser.jpg",
+    description: "Developed laser-based speed and crash-mapping system for LTI."
+  },
+  {
+    title: "Decentralized Collaboration Engine",
+    category: "Blockchain",
+    image: "/thumbnails/blockchain-collab.jpg",
+    description: "Built secure R&D data exchange using Ethereum smart contracts."
   }
 ];
 
 export default function Projects() {
+  const [filter, setFilter] = useState("All");
+
+  const filteredProjects =
+    filter === "All"
+      ? projectData
+      : projectData.filter((p) => p.category === filter);
+
+  const categories = ["All", "Cloud", "Product", "Hardware", "Blockchain"];
+
   return (
-    <main className="max-w-6xl mx-auto px-6 py-10">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Featured Projects</h1>
-      <div className="grid md:grid-cols-3 gap-6">
-        {featuredProjects.map((proj, index) => (
-          <Card key={index}>
-            <CardContent className="p-4">
-              <p className="text-xs text-gray-400 mb-1">{proj.category}</p>
-              <h3 className="font-semibold text-lg text-green-700 mb-1">{proj.title}</h3>
-              <p className="text-sm text-gray-700">{proj.description}</p>
-            </CardContent>
-          </Card>
+    <main className="max-w-6xl mx-auto px-6 py-12 text-brand-blue">
+      <h1 className="text-3xl font-bold mb-6 text-center">Featured Projects</h1>
+
+      <div className="flex flex-wrap justify-center gap-4 mb-10">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            className={`px-4 py-2 rounded-full text-sm font-medium border ${
+              filter === cat
+                ? "bg-brand-blue text-white"
+                : "bg-white text-brand-blue border-brand-blue"
+            }`}
+            onClick={() => setFilter(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {filteredProjects.map((project, idx) => (
+          <div key={idx} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h2 className="text-lg font-bold mb-1">{project.title}</h2>
+              <p className="text-sm text-gray-600 mb-2">{project.category}</p>
+              <p className="text-gray-700 text-sm">{project.description}</p>
+            </div>
+          </div>
         ))}
       </div>
     </main>
