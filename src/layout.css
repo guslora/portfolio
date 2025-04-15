@@ -1,0 +1,38 @@
+
+:root {
+  --color-dark-blue: #1F2937;
+  --color-light-blue: #60A5FA;
+  --color-bright-green: #22C55E;
+  --color-light-gray: #F9FAFB;
+}
+
+body {
+  background-color: var(--color-light-gray);
+  color: #1F2937;
+  font-family: 'Inter', sans-serif;
+}
+
+header, footer {
+  background-color: var(--color-dark-blue);
+  color: white;
+}
+
+a {
+  color: var(--color-light-blue);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button, .btn {
+  background-color: var(--color-bright-green);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+button:hover, .btn:hover {
+  background-color: #16A34A;
+}
