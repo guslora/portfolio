@@ -9,16 +9,10 @@ export default function Post() {
 
   useEffect(() => {
     const fetchPost = async () => {
-      console.log('Fetching post for slug:', slug);
-      try {
-        const res = await fetch(`/posts/${slug}.md`);
-        const text = await res.text();
-        console.log('Fetched markdown content:', text.substring(0, 100));
-        const { data, content } = matter(text);
-        setPost({ title: data.title, date: data.date, content });
-      } catch (err) {
-        console.error('Failed to load post:', err);
-      }
+      const res = await fetch(`/posts/${slug}.md`);
+      const text = await res.text();
+      const { data, content } = matter(text);
+      setPost({ title: data.title, date: data.date, content });
     };
     fetchPost();
   }, [slug]);

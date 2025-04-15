@@ -7,11 +7,7 @@ export default function Blog() {
 
   useEffect(() => {
     const loadPosts = async () => {
-      const files = [
-        "cloud-journey.md",
-        "building-product-from-scratch.md",
-        "speed-laser-innovation.md"
-      ];
+      const files = ["cloud-journey.md"];
       const loadedPosts = await Promise.all(
         files.map(async (file) => {
           const res = await fetch(`/posts/${file}`);
@@ -34,15 +30,15 @@ export default function Blog() {
       <h1 className="text-3xl font-bold mb-6 text-center">Blog Highlights</h1>
       <div className="grid md:grid-cols-2 gap-6">
         {posts.map((post, idx) => (
-          <div key={idx} className="bg-white rounded-lg shadow p-4">
-            <h2 className="text-xl font-bold text-brand-blue mb-2">
-              <Link to={`/blog/${post.slug}`} className="hover:underline">
-                {post.title}
-              </Link>
-            </h2>
+          <Link
+            key={idx}
+            to={`/blog/${post.slug}`}
+            className="block bg-white rounded-lg shadow p-4 hover:bg-gray-50 transition cursor-pointer"
+          >
+            <h2 className="text-xl font-bold text-brand-blue mb-1">{post.title}</h2>
             <p className="text-sm text-gray-500 mb-1">{post.date}</p>
-            <p className="text-gray-700 text-sm mb-2">{post.excerpt}</p>
-            <div className="text-xs text-brand-blue space-x-2">
+            <p className="text-gray-700 text-sm">{post.excerpt}</p>
+            <div className="text-xs text-brand-blue space-x-2 mt-2">
               {post.tags?.map((tag, i) => (
                 <span
                   key={i}
@@ -52,7 +48,7 @@ export default function Blog() {
                 </span>
               ))}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </main>
