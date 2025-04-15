@@ -18,10 +18,10 @@ export default function Post() {
   }, [slug]);
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-12 text-brand-blue">
+    <main className="max-w-3xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
       <p className="text-sm text-gray-500 mb-6">{post.date}</p>
-      <article className="prose max-w-none prose-blue">
+      <article className="prose max-w-none">
         <ReactMarkdown>{post.content}</ReactMarkdown>
       </article>
     </main>

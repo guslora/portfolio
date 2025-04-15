@@ -1,7 +1,7 @@
 ---
 title: "Cloud Journey"
-date: "2025-04-14"
-tags: ["Cloud", "Strategy"]
+date: "2025-04-01"
+tags: ["Cloud", "Tech"]
 ---
 
-This post explores the evolution of cloud infrastructure and how I transitioned from traditional IT environments into modern Azure-based deployments. I reflect on architectural patterns, cost strategies, and scalability.
+Reflections on transitioning from traditional IT to Azure.

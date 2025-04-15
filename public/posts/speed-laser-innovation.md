@@ -1,9 +1,7 @@
 ---
-title: "How We Engineered a Speed Laser"
-date: "2024-02-12"
-tags: ["Hardware", "LTI"]
+title: "Speed Laser Innovation"
+date: "2025-04-02"
+tags: ["Cloud", "Tech"]
 ---
 
-Creating hardware for law enforcement use requires more than engineering—it requires empathy, safety testing, and durability.
-
-This post covers how we built a modern speed measurement system used by officers across the US.
+How we developed speed detection tech at Laser Technology Inc.
