@@ -22,7 +22,7 @@ export default function Home() {
         <img
           src="/profile.jpg"
           alt="Gus Lora"
-          className="mx-auto w-32 h-32 rounded-full object-cover shadow-md mb-4"
+          className="mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-brand-blue shadow-lg mb-4"
         />
         <h1 className="text-4xl font-bold mb-2">Gus Lora</h1>
         <p className="text-xl text-brand-blue mb-6">Cloud Architect • Product Strategist • Innovation Driver</p>
