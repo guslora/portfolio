@@ -1,45 +1,16 @@
-# Gus Lora Portfolio Setup
+# Gus Lora Portfolio - Phase 2: Dark Mode Toggle
 
-## 🚀 How to Run Locally
+## What's included
+- Tailwind `darkMode: 'class'` config
+- `ThemeToggle.jsx` React component
+- Tailwind-compatible `index.css` for light/dark styling
 
-1. Install dependencies:
-   ```
-   npm install
-   ```
+## How to use
+1. Add `<ThemeToggle />` inside your header/navbar
+2. Make sure your `tailwind.config.js` and CSS are updated as shown
+3. Style your layout using `dark:` classes
 
-2. Start the dev server:
-   ```
-   npm run dev
-   ```
-
-3. Visit:
-   - Homepage: http://localhost:5173
-   - Blog: http://localhost:5173/blog
-   - Individual Post: http://localhost:5173/blog/cloud-journey
-
-## 📝 Blog Notes
-- All markdown posts live in the `/posts` directory.
-- You can add more posts by creating `.md` files with this structure:
-
+Example:
+```jsx
+<main className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
 ```
----
-title: "Your Title"
-date: "2025-04-14"
-tags: ["Cloud", "Innovation"]
----
-
-Markdown content goes here...
-```
-
-## 📦 Dependencies Required
-Be sure these are in your `package.json` or install them manually:
-
-```
-npm install gray-matter react-markdown
-```
-
-## 📁 Public Files
-- `public/profile.jpg` – Your avatar image
-- `public/thumbnails/` – Project image previews
-- `public/resume.pdf` – Resume download
-- `public/onepager.pdf` – One-pager download
