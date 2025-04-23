@@ -1,1 +1,1 @@
-// About Me component with resume, photo, and LinkedIn
+// About page restored with photo, resume, LinkedIn
